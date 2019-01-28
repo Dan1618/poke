@@ -26,12 +26,12 @@ export class SinglePokeComponent implements OnInit {
 
   prevPoke(): void {
     const id = this.singlePoke.id;
-    (id > 0 && id < 100) && this.router.navigate(['/pokemon/' + (id - 1)]);
+    (id > 0 && id <= 100) && this.router.navigate(['/pokemon/' + (id - 1)]);
   }
 
   nextPoke(): void {
     const id = this.singlePoke.id;
-    (id > 0 && id < 100) && this.router.navigate(['/pokemon/' + (id + 1)]);
+    (id > 0 && id <= 100) && this.router.navigate(['/pokemon/' + (id + 1)]);
   }
 }
 
