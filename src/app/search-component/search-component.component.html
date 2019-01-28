@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <form #pokeSearch="ngForm" (ngSubmit)="submitPoke(pokeSearch.form);">
+    <div class="form-group">
+      <span>Poke id: </span>
+      <input class="form-control" [(ngModel)]="iDSearch" type="number"  #idtemplate="ngModel" (input)="idChanged($event.target.value)"
+      id="pokeIDSearch" name="pokeIDSearch" required pattern="([1-9]|[1-9][0-9]|100)">
+      <button [disabled]="(!idtemplate.valid && idtemplate.errors.pattern) || !iDSearch" mat-raised-button type="submit">Search</button>
+      <button type="button" mat-raised-button (click)="goToMainPage()">Home</button>
+    </div>
+    <h1 class="text-invalidator" *ngIf="!idtemplate.valid && idtemplate.errors.pattern">Max id: 100, only numbers</h1>
+  </form>
+</div>

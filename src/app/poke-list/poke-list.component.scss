@@ -1,0 +1,23 @@
+:host ::ng-deep {
+  .mat-paginator-page-size {
+    display: none;
+  }
+  .mat-paginator-container {
+    justify-content: flex-start;
+  }
+  .table-and-paginator {
+    width: 360px;
+    table {
+        width: 100%;
+        box-shadow: none;
+        tbody {
+          tr {
+            cursor: pointer;
+          }
+          td {
+            font-size: 16px;
+          }
+        }
+      }
+  }
+}

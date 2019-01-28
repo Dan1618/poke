@@ -1,0 +1,17 @@
+<div class="single-poke-buttons">
+  <button [disabled]="singlePoke.id === 1" mat-raised-button (click)="prevPoke()">previous</button>
+  <button [disabled]="singlePoke.id === 100" mat-raised-button (click)="nextPoke()">next</button>
+</div>
+<div class="single-poke-header">
+  <img alt="Pokemon image" id="poke-image" [src]="imgUrl">
+  <h1>#{{singlePoke.id}} {{singlePoke.name}}</h1>
+</div>
+<div id="statistics">
+  <div class="bar-and-description" *ngFor="let stat of singlePoke.stats.slice().reverse()">
+    <div class="">
+      <span>{{stat.stat.name}}: {{stat.base_stat}}</span>
+      <span class="span-effort" *ngIf="stat.effort > 0"> Effort: {{ stat.effort}}</span>
+    </div>
+    <mat-progress-bar class="progress" mode="determinate" [value]="stat.base_stat/255*100"></mat-progress-bar>
+  </div>
+</div>

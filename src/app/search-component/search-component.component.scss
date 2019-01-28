@@ -1,0 +1,16 @@
+:host ::ng-deep {
+    #pokeIDSearch {
+        height: 30px;
+        font-size: 18px;
+        border: 2px solid gray;
+        border-radius: 5px;
+        width: 64px;
+    }
+    .wrapper {
+        margin-bottom: 30px;
+        margin-top: 20px;
+        button {
+            margin-left: 10px;
+        }
+    }
+}

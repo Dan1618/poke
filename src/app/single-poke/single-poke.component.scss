@@ -1,0 +1,44 @@
+:host ::ng-deep {
+    .bar-and-description {
+        margin-bottom: 10px;
+        .progress {
+            height: 12px;
+        }
+    }
+    .single-poke-buttons {
+        margin-top: 30px;
+        float:left;
+    }
+    .progress {
+        width: 510px;
+    }
+    .single-poke-header {
+        float: left;
+        h1 {
+            display: block;
+            margin-left: 10px;
+            float: right;
+            margin-top: 35px;
+        }
+    }
+    
+    #poke-image {
+        margin-left:10px;
+        width: 96px;
+        height: 96px;
+    }
+    .span-effort{
+        padding-left:10px;
+    }
+    #statistics {
+        margin-top:10px;
+        float: left;
+        clear: both;
+    }
+
+    @media(max-width: 720px) {
+        .single-poke-header {
+            clear:left;
+        }
+    }
+}
