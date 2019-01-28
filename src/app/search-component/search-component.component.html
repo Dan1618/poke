@@ -7,6 +7,6 @@
       <button [disabled]="(!idtemplate.valid && idtemplate.errors.pattern) || !iDSearch" mat-raised-button type="submit">Search</button>
       <button type="button" mat-raised-button (click)="goToMainPage()">Home</button>
     </div>
-    <h1 class="text-invalidator" *ngIf="!idtemplate.valid && idtemplate.errors.pattern">Max id: 100, only numbers</h1>
+    <h1 class="text-invalidator" *ngIf="!idtemplate.valid && idtemplate.errors.pattern">ID min: 0, max: 100</h1>
   </form>
 </div>
