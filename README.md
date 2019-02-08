@@ -1,4 +1,4 @@
-# poke
+# poke-api
 
 Training app connecting with api and implementing angular material components
 
