@@ -3,6 +3,7 @@ import { RestService } from '../common/rest.service';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { SearchingCommunicationService } from './../common/searching-communication.service';
 import { Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-poke-list',
@@ -11,7 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class PokeListComponent implements OnInit {
   pokemons;
-  idChanged: Subscription;
+  getAll: Subscription;
 
   displayedColumns: string[] = ['id', 'name'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -27,7 +28,7 @@ export class PokeListComponent implements OnInit {
   }
 
   getPokemons() {
-    this.rest.getAllPokemons().subscribe((data) => {
+    this.getAll = this.rest.getAllPokemons().pipe(switchMap((data) => {
       data.results.forEach(element => {
         let id = element.url.slice(0, -1);
         element.id = id.substring(id.lastIndexOf('/') + 1);
@@ -35,9 +36,9 @@ export class PokeListComponent implements OnInit {
       this.pokemons = new MatTableDataSource(data.results);
       this.pokemons.paginator = this.paginator;
       this.pokemons.filterPredicate = (data, filter: string) => !filter || data.id == filter;
-      this.idChanged = this.searchingCommunication.getMessage().subscribe(id => {
-        this.pokemons.filter = id;
-      });
+      return this.searchingCommunication.getMessage();
+    })).subscribe(id => {
+      this.pokemons.filter = id;
     });
   }
 }
