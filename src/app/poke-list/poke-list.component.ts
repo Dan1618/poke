@@ -24,7 +24,7 @@ export class PokeListComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.idChanged.unsubscribe();
+    this.getAll.unsubscribe();
   }
 
   getPokemons() {
